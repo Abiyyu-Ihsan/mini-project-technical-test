@@ -103,7 +103,7 @@ const MenuHome: FC<MenuHomeProps> = ({
           className={`
             rounded-md w-full flex items-center justify-center px-4 h-12 lg:h-10 transition
             hover:!bg-[#53CCE1] hover:!text-white font-semibold
-            text-sm text-black
+            text-sm text-white
             ${active ? "bg-[#53CCE1] dark:bg-white/5 lg:bg-none font-semibold text-white dark:text-redsy-1" : ""}
             ${actionButton ? "bg-[#53CCE1] hover:!bg-[#53CCE1] !text-white shadow-lg shadow-[#53CCE1]-1/50 hover:shadow-none" : ""}
           `}

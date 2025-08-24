@@ -62,72 +62,12 @@ export default function CategoryDiscount({
             </div>
           </RadioGroup>
         </div>
-        <div className="mt-7">
-          <RadioGroup
-            value={selectedDiscount !== null ? String(selectedDiscount) : ""}
-            onValueChange={handleDiscountChange}
-          >
-            <div className="flex items-center justify-between border-b pb-3 border-b-[#E2E8F0] space-x-2">
-              <p>Harga Diskon</p>
-              <RadioGroupItem value="true" id="r1" />
-            </div>
-          </RadioGroup>
-        </div>
-        <div className="mt-7">
-          <RadioGroup
-            value={selectedDiscount !== null ? String(selectedDiscount) : ""}
-            onValueChange={handleDiscountChange}
-          >
-            <div className="flex items-center justify-between border-b pb-3 border-b-[#E2E8F0] space-x-2">
-              <p>Harga Diskon</p>
-              <RadioGroupItem value="true" id="r1" />
-            </div>
-          </RadioGroup>
-        </div>
-        <div className="mt-7">
-          <RadioGroup
-            value={selectedDiscount !== null ? String(selectedDiscount) : ""}
-            onValueChange={handleDiscountChange}
-          >
-            <div className="flex items-center justify-between border-b pb-3 border-b-[#E2E8F0] space-x-2">
-              <p>Harga Diskon</p>
-              <RadioGroupItem value="true" id="r1" />
-            </div>
-          </RadioGroup>
-        </div>
-        <div className="mt-7">
-          <RadioGroup
-            value={selectedDiscount !== null ? String(selectedDiscount) : ""}
-            onValueChange={handleDiscountChange}
-          >
-            <div className="flex items-center justify-between border-b pb-3 border-b-[#E2E8F0] space-x-2">
-              <p>Harga Diskon</p>
-              <RadioGroupItem value="true" id="r1" />
-            </div>
-          </RadioGroup>
-        </div>
-        <div className="mt-7">
-          <RadioGroup
-            value={selectedDiscount !== null ? String(selectedDiscount) : ""}
-            onValueChange={handleDiscountChange}
-          >
-            <div className="flex items-center justify-between border-b pb-3 border-b-[#E2E8F0] space-x-2">
-              <p>Harga Diskon</p>
-              <RadioGroupItem value="true" id="r1" />
-            </div>
-          </RadioGroup>
-        </div>
-        <div className="mt-7">
-          <RadioGroup
-            value={selectedDiscount !== null ? String(selectedDiscount) : ""}
-            onValueChange={handleDiscountChange}
-          >
-            <div className="flex items-center justify-between border-b pb-3 border-b-[#E2E8F0] space-x-2">
-              <p>Harga Diskon</p>
-              <RadioGroupItem value="true" id="r1" />
-            </div>
-          </RadioGroup>
-        </div>
+   
+
+ 
+    
+
+ 
 
         {selectedDiscount && (
           <button

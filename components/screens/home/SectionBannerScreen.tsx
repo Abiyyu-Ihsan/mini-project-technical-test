@@ -60,7 +60,7 @@ export default function BannerComponent() {
 
   return (
     <section>
-      <div className="carousel-hero max-w-7xl mx-auto lg:pt-20 md:pt-10 pt-4 px-5">
+      <div className="carousel-hero max-w-7xl mx-auto lg:pt-30 pt-20 px-5">
         <div className="relative w-full h-auto">
           {banners.length > 1 ? (
             <Slider {...settings}>

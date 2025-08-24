@@ -31,7 +31,7 @@ export default function SectionProductScreen() {
           </div>
         ) : (
           <TabGroup>
-            <div className="w-full flex md:pb-10 pt-3 justify-center">
+            <div className="w-full flex  pt-3 justify-center">
               <TabList
                 style={{ scrollbarWidth: "auto" }}
                 className="md:flex gap-5 md:justify-center scrollbar-hidden flex whitespace-nowrap overflow-x-auto rounded"

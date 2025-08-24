@@ -10,7 +10,7 @@ interface TopProductSectionProps {
 export default function CardTopProduct({ images, name, slug }: TopProductSectionProps) {
   return (
     <section>
-      <div className="flex mb-20 flex-col w-full group">
+      <div className="flex  flex-col w-full group">
         <div className="relative overflow-hidden rounded-md">
           <img
             src={images || "/images/d.jpg"}
