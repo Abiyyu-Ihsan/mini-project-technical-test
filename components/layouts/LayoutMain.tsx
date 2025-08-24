@@ -24,7 +24,7 @@ const LayoutDashboardView: FC<LayoutDashboardProps> = ({ children }) => {
     <>
       <div className="flex">
         <Head>
-          <title>{`KDP | Dashboard`}</title>
+          <title>{`K-Stylehub`}</title>
         </Head>
        
         <div className="flex flex-col grow ">
