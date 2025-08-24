@@ -41,7 +41,7 @@ export default function SectionListProductMobile({
                     <li key={index}>
                       <CardListProduct
                         name={item?.name}
-                        slug={`/produk/${item.slug}`}
+                        slug={`/product/${item.slug}`}
                         price={item?.price}
                         rating={item?.rating}
                         sold={item?.sold_count}

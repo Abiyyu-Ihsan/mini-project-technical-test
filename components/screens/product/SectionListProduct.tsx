@@ -232,7 +232,7 @@ export default function SectionListProduct({
                     <li key={`${item.slug}-${index}`}>
                       <CardListProduct
                         name={item?.name}
-                        slug={`/produk/${item.slug}`}
+                        slug={`/product/${item.slug}`}
                         thumbnail={item?.thumbnail}
                         price={item?.price}
                         sold={item?.sold_count}
