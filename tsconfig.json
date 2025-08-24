@@ -38,6 +38,9 @@
       "@widgets/*": [
         "./components/widgets/*"
       ],
+        "@shadcn/*": [
+        "./shadcn/*"
+      ],
       "@libs/*": [
         "./libs/*"
       ],

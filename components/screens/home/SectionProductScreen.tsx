@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Tab, TabGroup, TabList } from "@headlessui/react";
-import { useCategories, useProductsByCategory } from "@libs/services/ProductService";
+import { useCategories, useProductsByCategory } from "@libs/services/ProductHomeService";
 
 
 export default function SectionProductScreen() {

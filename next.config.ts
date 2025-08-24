@@ -6,7 +6,7 @@ const nextConfig = {
     SECRET_KEY: process.env.SECRET_KEY,
   },
   images: {
-    domains: ["asset-ksu.aether.id", "/icons/*"],
+    domains: ["lebabies-public-development.s3.ap-southeast-3.amazonaws.com", "/icons/*", "lebabies-public-production.s3.ap-southeast-3.amazonaws.com"],
   },
   eslint: {
     ignoreDuringBuilds: true,
