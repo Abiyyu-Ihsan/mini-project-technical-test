@@ -1,8 +1,16 @@
 import LayoutDashboardView from '@components/layouts/LayoutMain'
-import React from 'react'
+import React, { useState } from 'react'
 import SectionListProduct from './SectionListProduct'
+import SectionSortScreen from './SectionSortScreen'
 
 export default function ProductView() {
+    const [selectedCategories, setSelectedCategories] = useState<[]>([]);
+    const [highestPrice, setHighestPrice] = useState<string>("");
+    const [lowestPrice, setLowestPrice] = useState<string>("");
+    const [lastAdded, setLastAdded] = useState<string>("");
+    const [discount, setDiscount] = useState<string>("");
+    const [ratingAbove, setRatingAbove] = useState<string>("");
+    const [categorySlug, setCategorySlug] = useState<[]>([]);
     return (
         <LayoutDashboardView>
             <section className="pt-0 lg:pt-10">
@@ -17,15 +25,15 @@ export default function ProductView() {
                             </div>
 
                             {/* Kirim setter ke SectionSort */}
-                            {/* <SectionSort
-                onFilterChange={setSelectedCategories}
-                onHighestPriceChange={setHighestPrice}
-                onLowestPriceChange={setLowestPrice}
-                onLastAddedChange={setLastAdded}
-                onDiscountChange={setDiscount}
-                onRatingAboveChange={setRatingAbove}
-                onCategorySlugChange={setCategorySlug}
-              /> */}
+                            <SectionSortScreen
+                            onFilterChange={setSelectedCategories}
+                            onHighestPriceChange={setHighestPrice}
+                            onLowestPriceChange={setLowestPrice}
+                            onLastAddedChange={setLastAdded}
+                            onDiscountChange={setDiscount}
+                            onRatingAboveChange={setRatingAbove}
+                            onCategorySlugChange={setCategorySlug}
+                            />
                             {/* Kirim setter ke SectionSort */}
                         </div>
                         <div className="w-full mx-auto md:w-4/5 pl-[37px] md:pr-0">
@@ -39,8 +47,14 @@ export default function ProductView() {
                 ratingAbove={ratingAbove}
                 categorySlug={categorySlug}
               /> */}
-              <SectionListProduct />
-                            {/* Kirim kategori terpilih ke SectionListProduct */}
+                            <SectionListProduct
+                                selectedCategories={selectedCategories}
+                                highestPrice={highestPrice}
+                                lowestPrice={lowestPrice}
+                                lastAdded={lastAdded}
+                                discount={discount}
+                                ratingAbove={ratingAbove}
+                                categorySlug={categorySlug} />
                         </div>
                     </div>
                 </div>
