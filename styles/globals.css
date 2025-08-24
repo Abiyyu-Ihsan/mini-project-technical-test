@@ -1,26 +1,46 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-muted: rgb(0, 15, 70);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --main-sidebar-width: 20rem;
+}
+
+html {
+  @apply bg-main;
+  @apply font-inter;
+  @apply normal-case;
+}
+
+/* HIDE INPUT CHOOSE FILE  */
+::-webkit-file-upload-button {
+  display: none;
+}
+::file-selector-button {
+  display: none;
+}
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+/* Youtube Player */
+
+.video-responsive {
+  overflow: hidden;
+  position: relative;
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
