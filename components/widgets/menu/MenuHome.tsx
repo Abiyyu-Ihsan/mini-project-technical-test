@@ -78,7 +78,7 @@ const MenuHome: FC<MenuHomeProps> = ({
                 <Link href={e.href} legacyBehavior>
                   <a
                     className={`
-                      font-semibold text-blacksy-3/90 rounded-md py-3 px-6 lg:pr-12 border-b border-blacksy-2/10 dark:border-blacksy-2 w-full whitespace-nowrap hover:!bg-[#53CCE1] hover:!text-white block
+                      font-semibold text-blacksy-3/90 rounded-md py-3 px-6 lg:pr-12 border-b border-blacksy-2/10 dark:border-blacksy-2 w-full whitespace-nowrap hover:!bg-[#53CCE1] hover:!text-black block
                       ${e.active ? "rounded-md bg-[#53CCE1] dark:bg-white/5 lg:bg-none font-semibold text-redsy-3 dark:text-[#70A542]" : ""}
                     `}
                   >
@@ -103,7 +103,7 @@ const MenuHome: FC<MenuHomeProps> = ({
           className={`
             rounded-md w-full flex items-center justify-center px-4 h-12 lg:h-10 transition
             hover:!bg-[#53CCE1] hover:!text-white font-semibold
-            text-sm text-white
+            text-sm text-black
             ${active ? "bg-[#53CCE1] dark:bg-white/5 lg:bg-none font-semibold text-white dark:text-redsy-1" : ""}
             ${actionButton ? "bg-[#53CCE1] hover:!bg-[#53CCE1] !text-white shadow-lg shadow-[#53CCE1]-1/50 hover:shadow-none" : ""}
           `}

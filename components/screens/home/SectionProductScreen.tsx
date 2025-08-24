@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Tab, TabGroup, TabList } from "@headlessui/react";
 import { useCategories, useProductsByCategory } from "@libs/services/ProductHomeService";
+import CardTopProduct from "@components/card/CardTopProduct";
 
 
 export default function SectionProductScreen() {
@@ -15,9 +16,9 @@ export default function SectionProductScreen() {
 
   return (
     <section>
-      <div className="relative pt-12 px-5">
+      <div className="relative pt-12  px-5">
         <div className="flex justify-center mb-3 ">
-          <h1 className="text-white md:text-lg text-base font-semibold inline-flex bg-[#5CCCDC] rounded-[50px] px-3 py-1">
+          <h1 className="text-black md:text-lg text-base font-semibold inline-flex bg-[#5CCCDC] rounded-[50px] px-3 py-1">
             PRODUCT
           </h1>
         </div>
@@ -61,10 +62,12 @@ export default function SectionProductScreen() {
             ) : (
               <div className="grid grid-cols-1 max-w-7xl mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:px-10 mt-6">
                 {products?.map((product) => (
-                  <div key={product.id}>
-                    <img src={product.thumbnail || "/images/d.jpg"} alt={product.name} className="w-[900px]"/>
-                    <h2>{product.name}</h2>
-                  </div>
+                   <CardTopProduct
+                  key={product.id}
+                  images={product?.thumbnail}
+                  name={product?.name}
+                  slug={`product/${product?.slug}`}
+                />
                 ))}
               </div>
             )}

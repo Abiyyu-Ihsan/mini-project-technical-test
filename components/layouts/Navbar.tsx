@@ -153,7 +153,7 @@ const Navbar: FC<Navbarprops> = ({
             <ul className="items-center hidden space-x-1 font-card lg:flex ">
               {/* <NavLink active={pathname == "/beli"} text="Sewa" href="/sewa-rumah" /> */}
 
-              <ListMenu.Home text="Product" href="/" media />
+              <ListMenu.Home text="Product" href="/product" media />
 
 
        
@@ -169,7 +169,7 @@ const Navbar: FC<Navbarprops> = ({
         ${menu ? "translate-x-0" : "-translate-x-full"}`}
       >
         <ul className="flex flex-col h-full">
-          <ListMenu.Home text="Product" href="/" media />
+          <ListMenu.Home text="Product" href="/product" media />
         </ul>
       </div>
     </header>

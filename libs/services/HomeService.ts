@@ -37,3 +37,31 @@ export const useListBanner = (): UseQueryResult<BannerResponse> => {
         retry: 2,
     });
 };
+
+
+export interface Testimony {
+  person_name: string;
+  description?: string;
+  comment?: string;
+}
+
+export const getTestimony = async (): Promise<Testimony[]> => {
+  const response = await axios.get(`${process.env.API_URL}/testimonies`, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
+
+  // ⬇️ pastikan return array
+  return response.data?.data ?? [];
+};
+
+export const useTestimony = () => {
+  return useQuery<Testimony[], Error>({
+    queryKey: ["testimonies"],
+    queryFn: getTestimony,
+    initialData: [],
+  });
+};
+
