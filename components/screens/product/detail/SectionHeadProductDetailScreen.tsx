@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 import Slider, { Settings } from "react-slick";
 
-
 interface ImageType {
   image: string;
   alt_image: string;
@@ -34,8 +33,8 @@ const PrevArrow: React.FC<ArrowProps> = ({ onClick }) => (
     alt="prev-arrow"
     loading="lazy"
     aria-label="prev arrow"
-    className="hidden md:flex -translate-y-6 z-20 translate-x-6 slick-arrow slick-prev cursor-pointer"
-    style={{ width: "50px", height: "50px" }}
+    className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-20 slick-arrow slick-prev cursor-pointer"
+    style={{ width: "40px", height: "40px" }}
     aria-hidden="true"
   />
 );
@@ -47,8 +46,8 @@ const NextArrow: React.FC<ArrowProps> = ({ onClick }) => (
     alt="next-arrow"
     loading="lazy"
     aria-label="next-arrow"
-    className="hidden md:flex -translate-y-6 -translate-x-6 slick-arrow slick-next cursor-pointer"
-    style={{ width: "50px", height: "50px" }}
+    className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-20 slick-arrow slick-next cursor-pointer"
+    style={{ width: "40px", height: "40px" }}
     aria-hidden="true"
   />
 );
@@ -61,7 +60,7 @@ const SectionHeadProductDetailScreen: React.FC<SectionHeadDetailProps> = ({ data
   // Defensive programming: handle case when data is null/undefined
   if (!data) {
     return (
-      <div className="max-w-7xl mx-auto md:pt-20 md:px-5">
+      <div className="max-w-7xl mx-auto px-4 py-6 md:pt-20 md:px-5">
         <div className="text-center py-10">
           <p className="text-gray-500">Data produk tidak tersedia</p>
         </div>
@@ -115,6 +114,15 @@ const SectionHeadProductDetailScreen: React.FC<SectionHeadDetailProps> = ({ data
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          dots: true,
+        }
+      }
+    ]
   };
 
   // Default values untuk mencegah error
@@ -124,84 +132,107 @@ const SectionHeadProductDetailScreen: React.FC<SectionHeadDetailProps> = ({ data
   const defaultImage = "/images/placeholder-product.jpg"; 
 
   return (
-    <div className="max-w-7xl mx-auto md:pt-20 md:px-5">
-      <div className="md:flex">
-        <div className="md:w-1/3 w-full group">
+    <div className="max-w-7xl mx-auto px-4 py-6 pt-20 md:pt-32 md:px-5">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+        {/* Image Section */}
+        <div className="w-full max-w-sm mx-auto md:max-w-none md:mx-0 md:w-1/3 lg:w-2/5">
           {hasMultipleImages ? (
-            <Slider {...settings}>
-            {images.map((img: ImageType, index: number) => (
-                <div key={index} className="relative group">
-                  <Image
-                    src={img.image || defaultImage}
-                    alt={img.alt_image || `Product image ${index + 1}`}
-                    className="md:mt-11 mt-9 md:rounded-md border"
-                    width={800}
-                    height={800}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = defaultImage;
-                    }}
-                  />
-                </div>
-              ))}
-            </Slider>
+            <div className="relative">
+              <Slider {...settings}>
+                {images.map((img: ImageType, index: number) => (
+                  <div key={index} className="relative">
+                    <div className="aspect-square w-full max-h-80 md:max-h-none overflow-hidden rounded-lg border">
+                      <Image
+                        src={img.image || defaultImage}
+                        alt={img.alt_image || `Product image ${index + 1}`}
+                        className="w-full h-full object-cover"
+                        width={600}
+                        height={600}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = defaultImage;
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
           ) : (
-            <div className="relative group w-full">
-  <img
-    src={images[0]?.image || defaultImage}
-    alt={images[0]?.alt_image || "Product image"}
-    className="w-full h-auto md:mt-11 mt-9 md:rounded-md border object-contain"
-    onError={(e) => {
-      const target = e.target as HTMLImageElement;
-      target.src = defaultImage;
-    }}
-  />
-</div>
+            <div className="relative w-full">
+              <div className="aspect-square w-full max-h-80 md:max-h-none overflow-hidden rounded-lg border">
+                <img
+                  src={images[0]?.image || defaultImage}
+                  alt={images[0]?.alt_image || "Product image"}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = defaultImage;
+                  }}
+                />
+              </div>
+            </div>
           )}
         </div>
-        <div className="md:ml-[38px] md:w-[582px] p-3 md:p-0 md:mt-11">
-          <h1 className="text-black md:text-lg text-sm font-semibold leading-4">
+
+        {/* Product Info Section */}
+        <div className="w-full md:w-2/3 lg:w-3/5">
+          <h1 className="text-black text-lg md:text-xl lg:text-2xl font-semibold leading-tight mb-3 md:mb-4">
             {data.name || "Nama produk tidak tersedia"}
           </h1>
-          <div className="flex md:mt-4 mt-2 items-center">
-            <h1 className="text-[#E41A67] text-sm md:text-[32px] font-semibold leading-[38px]">
+
+          {/* Price Section */}
+          <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-3 md:mb-4">
+            <h2 className="text-[#E41A67] text-xl md:text-2xl lg:text-3xl font-semibold">
               {formatIDR(data.discounted_price)}
-            </h1>
+            </h2>
             {data.price !== data.discounted_price && (
               <>
-                <p className="text-[#747474] text-sm line-through md:text-base font-medium leading-[19px] ml-3">
+                <p className="text-[#747474] text-sm md:text-base line-through font-medium">
                   {formatIDR(data.price)}
                 </p>
                 {data.discount_in_percentage > 0 && (
-                  <span className="bg-[#CFFAFF] rounded-[2px] p-[1px] text-[#046A7C] text-xs font-semibold leading-[13px] ml-[6px]">
+                  <span className="bg-[#CFFAFF] rounded px-2 py-1 text-[#046A7C] text-xs font-semibold">
                     {data.discount_in_percentage}%
                   </span>
                 )}
               </>
             )}
           </div>
-          <div className="flex md:mt-4 mt-2 items-center">
-            <h1 className="text-black md:text-base text-sm font-normal leading-[19px]">
-              Terjual{" "}
-              <span className="text-[#747474] md:text-base text-sm font-normal leading-[19px]">
+
+          {/* Stats Section */}
+          <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+            <div className="flex items-center gap-1">
+              <span className="text-black text-sm md:text-base font-normal">
+                Terjual
+              </span>
+              <span className="text-[#747474] text-sm md:text-base font-normal">
                 {formatSold(data.sold_count)}
               </span>
-            </h1>
-            <img src="/icons/dot.svg" className="w-2 ml-3" alt="separator" />
-            <img src="/icons/bintang.svg" className="ml-[6px] mr-[2px]" alt="star" />
-            <p className="text-black md:text-base text-sm font-normal leading-[19px]">
-              {formatRating(data.rating)}/5
-            </p>
+            </div>
+            
+            <div className="w-1 h-1 bg-[#747474] rounded-full"></div>
+            
+            <div className="flex items-center gap-1">
+              <img src="/icons/bintang.svg" className="w-4 h-4" alt="star" />
+              <span className="text-black text-sm md:text-base font-normal">
+                {formatRating(data.rating)}/5
+              </span>
+            </div>
           </div>
+
+          {/* CTA Button */}
           {urls.length > 0 && urls[0]?.shopee && (
-            <a href={urls[0].shopee} target="_blank" rel="noopener noreferrer">
-              <button className="flex bg-[#E41A67] rounded-[8px] md:py-3 md:px-4 p-2 md:mt-4 mt-2 hover:bg-[#c91557] transition-colors">
-                <p className="text-white md:text-base text-sm font-semibold leading-[29px] md:mr-3 mr-1">
-                  Pesan di Shopee
-                </p>
-                <img src="/icons/direct.svg" className="md:w-4 w-3" alt="external link" />
-              </button>
-            </a>
+            <div className="mt-4 md:mt-6">
+              <a href={urls[0].shopee} target="_blank" rel="noopener noreferrer">
+                <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#E41A67] rounded-lg px-6 py-3 md:py-4 hover:bg-[#c91557] transition-colors">
+                  <span className="text-white text-sm md:text-base font-semibold">
+                    Pesan di Shopee
+                  </span>
+                  <img src="/icons/direct.svg" className="w-4 h-4" alt="external link" />
+                </button>
+              </a>
+            </div>
           )}
         </div>
       </div>
