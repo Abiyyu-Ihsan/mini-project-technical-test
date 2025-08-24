@@ -67,7 +67,9 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
+    "libs/moda/ModalMobile.js",
+
+    "**/*.tsx", "libs/modal/ModalMobile.js",
   ],
   "exclude": [
     "node_modules"

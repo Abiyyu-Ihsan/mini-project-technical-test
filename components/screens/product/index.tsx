@@ -37,16 +37,7 @@ export default function ProductView() {
                             {/* Kirim setter ke SectionSort */}
                         </div>
                         <div className="w-full mx-auto md:w-4/5 pl-[37px] md:pr-0">
-                            {/* Kirim kategori terpilih ke SectionListProduct */}
-                            {/* <SectionListProduct
-                selectedCategories={selectedCategories}
-                highestPrice={highestPrice}
-                lowestPrice={lowestPrice}
-                lastAdded={lastAdded}
-                discount={discount}
-                ratingAbove={ratingAbove}
-                categorySlug={categorySlug}
-              /> */}
+                 
                             <SectionListProduct
                                 selectedCategories={selectedCategories}
                                 highestPrice={highestPrice}

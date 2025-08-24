@@ -83,7 +83,7 @@ export default function CardListProduct({
 
           <div className="flex justify-between mt-3">
             <div className="flex items-center">
-              <img src="/icon/bintang.svg" alt="rating" />
+              <img src="/icons/bintang.svg" alt="rating" />
               <p className="text-black md:text-sm text-xs font-normal leading-[14px] pl-[6px]">
                 {rating}
               </p>

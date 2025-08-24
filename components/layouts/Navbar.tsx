@@ -2,9 +2,6 @@ import { Menu } from "@headlessui/react";
 import React, { FC, useEffect, useState } from "react";
 import ListMenu from "@components/widgets/menu/index";
 import { useRouter } from "next/router";
-// import IconLogout from "@components/icons/IconLogout";
-import { ArrowLeft, X } from "react-feather";
-
 import BurgerMenu from "./BurgerMenu";
 import { useBurgerStore } from "@libs/utils/stateBurgerZustand";
 import Link from "next/link";

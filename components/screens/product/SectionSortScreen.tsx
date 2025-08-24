@@ -6,13 +6,13 @@ import { CheckboxDiscount } from "../shadcn/CheckboxDiscount";
 import { CheckboxComponent } from "../shadcn/CheckboxCategory";
 
 interface SectionSortScreenProps {
-  onFilterChange: (value: string) => void;
+  onFilterChange: (value: string | any) => void;
   onHighestPriceChange: (value: string) => void;
   onLowestPriceChange: (value: string) => void;
   onLastAddedChange: (value: string) => void;
   onDiscountChange: (value: string) => void;
   onRatingAboveChange: (value: string) => void;
-  onCategorySlugChange: (value: string[] | null) => void;
+  onCategorySlugChange: (value: string[] | any) => void;
 }
 
 export default function SectionSortScreen({

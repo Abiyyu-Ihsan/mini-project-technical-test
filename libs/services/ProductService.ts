@@ -30,7 +30,7 @@ export interface ProductsFilterParams {
   size?: string;
   discount?: string;
   search?: string;
-  last_added?: string;
+  last_added?: string | any;
   thumbnail?: string;
   sort_by?: string;
   highest_price?: string;

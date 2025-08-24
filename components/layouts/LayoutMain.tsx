@@ -27,7 +27,7 @@ const LayoutDashboardView: FC<LayoutDashboardProps> = ({ children }) => {
           <title>{`KDP | Dashboard`}</title>
         </Head>
        
-        <div className="flex flex-col grow min-h-screen mb-20">
+        <div className="flex flex-col grow ">
           <Navbar />
           {children}
         </div>
